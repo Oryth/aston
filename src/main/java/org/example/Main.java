@@ -1,17 +1,40 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import java.util.ArrayList;
+import java.util.List;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student.Builder().groupNumber(102).averageScore(4.2).recordBookNumber("B-992").build();
+        Student s2 = new Student.Builder().groupNumber(101).averageScore(4.9).recordBookNumber("A-554").build();
+        Student s3 = new Student.Builder().groupNumber(105).averageScore(3.8).recordBookNumber("C-112").build();
+
+        List<Student> students = new ArrayList<>();
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+
+        System.out.println("=== Исходный список ===");
+        for (Student s : students) {
+            System.out.println(s);
+        }
+
+        System.out.println("\n=== Сортировка по номеру ГРУППЫ ===");
+        students.sort(new StudentComparator.GroupNumberComparator());
+        for (Student s : students) {
+            System.out.println(s);
+        }
+
+        System.out.println("\n=== Сортировка по СРЕДНЕМУ БАЛЛУ ===");
+        students.sort(new StudentComparator.AverageScoreComparator());
+        for (Student s : students) {
+            System.out.println(s);
+        }
+
+        System.out.println("\n=== Сортировка по № ЗАЧЁТКИ ===");
+        students.sort(new StudentComparator.RecordBookComparator());
+        for (Student s : students) {
+            System.out.println(s);
         }
     }
 }
