@@ -25,11 +25,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Студент{" +
+        return "Студент(" +
                 "Группа " + groupNumber +
                 ", Средний балл " + averageScore +
-                ", Номер зачетной книжки " + recordBookNumber + '\'' +
-                '}';
+                ", Номер зачетной книжки " + recordBookNumber +
+                ')';
     }
 
     @Override
