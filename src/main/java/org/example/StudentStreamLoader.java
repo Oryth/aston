@@ -20,7 +20,7 @@ public final class StudentStreamLoader {
             CustomArrayList<Student> result = lines
                     .filter(line -> !line.isBlank())
                     .limit(count)
-                    .map(StudentSources::parse)
+                    .map(StudentStreamLoader::parse)
                     .collect(
                             CustomArrayList<Student>::new,
                             CustomArrayList<Student>::add,
@@ -39,10 +39,8 @@ public final class StudentStreamLoader {
         return IntStream.range(0, count)
                 .mapToObj(index -> new Student.Builder()
                         .groupNumber(random.nextInt(100) + 1)
-                        .averageGrade(random.nextInt(501) / 100.0)
-                        .recordBookNumber(
-                                100_000L + random.nextInt(900_000)
-                        )
+                        .averageScore(random.nextInt(501) / 100.0)
+                        .recordBookNumber(String.valueOf(100_000L + random.nextInt(900_000)))
                         .build())
                 .collect(
                         CustomArrayList<Student>::new,
@@ -61,8 +59,8 @@ public final class StudentStreamLoader {
         try {
             return new Student.Builder()
                     .groupNumber(Integer.parseInt(fields[0].trim()))
-                    .averageGrade(Double.parseDouble(fields[1].trim()))
-                    .recordBookNumber(Long.parseLong(fields[2].trim()))
+                    .averageScore(Double.parseDouble(fields[1].trim()))
+                    .recordBookNumber(fields[2].trim())
                     .build();
         } catch (RuntimeException e) {
             throw new RuntimeException("Неправильная строка: " + line + ". " + e.getMessage(), e);
