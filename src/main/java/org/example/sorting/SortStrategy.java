@@ -1,7 +1,7 @@
 package org.example.sorting;
 
 import java.util.Comparator;
-import java.util.List;
+import org.example.CustomArrayList;
 
 
 public interface SortStrategy<T> {
@@ -11,6 +11,5 @@ public interface SortStrategy<T> {
      * @param elements коллекция для сортировки.
      * @param comparator объект, который знает, как сравнивать два элемента
      */
-    void sort(List<T> elements, Comparator<T> comparator);
-
+    void sort(CustomArrayList<T> elements, Comparator<T> comparator);
 }
