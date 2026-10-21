@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private final int groupNumber;
     private final double averageScore;
     private final String recordBookNumber;
@@ -21,6 +21,12 @@ public class Student {
     }
     public String getRecordBookNumber() {
         return recordBookNumber;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        // Базовая сортировка, например, по номеру зачетной книжки
+        return this.recordBookNumber.compareTo(o.recordBookNumber);
     }
 
     @Override
