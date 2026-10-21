@@ -40,9 +40,7 @@ public final class StudentStreamLoader {
                 .mapToObj(index -> new Student.Builder()
                         .groupNumber(random.nextInt(100) + 1)
                         .averageScore(random.nextInt(501) / 100.0)
-                        .recordBookNumber(
-                                Long.toString(100_000L + random.nextInt(900_000))
-                        )
+                        .recordBookNumber(String.valueOf(100_000L + random.nextInt(900_000)))
                         .build())
                 .collect(
                         CustomArrayList<Student>::new,
