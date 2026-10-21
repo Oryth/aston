@@ -42,7 +42,7 @@ public class QuickSort<T> implements SortStrategy<T> {
      * right - правая граница участка списка
      */
     private void quickSort(
-            List<T> elements,
+            CustomArrayList<T> elements,
             Comparator<T> comparator,
             int left,
             int right) {
@@ -80,7 +80,7 @@ public class QuickSort<T> implements SortStrategy<T> {
      * окажется опорный элемент.
      */
     private int partition(
-            List<T> elements,
+            CustomArrayList<T> elements,
             Comparator<T> comparator,
             int left,
             int right) {
