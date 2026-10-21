@@ -1,7 +1,7 @@
 package org.example.sorting;
 
 import java.util.Comparator;
-import java.util.List;
+import org.example.CustomArrayList;
 
 /**
  * Класс пузырьковой сортировки и реализует интерфейс SortStrategy
