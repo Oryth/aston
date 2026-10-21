@@ -2,7 +2,7 @@
 package org.example.sorting;
 
 import java.util.Comparator;
-import java.util.List;
+import org.example.CustomArrayList;
 
 /**
  * Класс быстрой сортировки (QuickSort).
@@ -18,7 +18,7 @@ import java.util.List;
 public class QuickSort<T> implements SortStrategy<T> {
 
     @Override
-    public void sort(List<T> elements, Comparator<T> comparator) {
+    public void sort(CustomArrayList<T> elements, Comparator<T> comparator) {
 
         // Получаем количество элементов
         int n = elements.size();

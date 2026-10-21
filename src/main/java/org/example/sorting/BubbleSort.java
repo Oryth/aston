@@ -10,7 +10,7 @@ public class BubbleSort<T> implements SortStrategy<T> {
 
 
     @Override
-    public void sort(List<T> elements, Comparator<T> comparator){
+    public void sort(CustomArrayList<T> elements, Comparator<T> comparator){
 
         // получаем кол-во элементов
         int n = elements.size();
