@@ -59,7 +59,6 @@ public final class StudentStreamLoader {
         }
 
         try {
-            Long.parseLong(fields[2].trim());
             return new Student.Builder()
                     .groupNumber(Integer.parseInt(fields[0].trim()))
                     .averageScore(Double.parseDouble(fields[1].trim()))

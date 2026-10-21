@@ -24,6 +24,7 @@ public class Main {
 
         boolean running = true;
 
+        // После выполнения команды возвращаемся в меню; пункт 0 завершает цикл.
         while(running) {
 
             showMenu();
@@ -124,6 +125,7 @@ public class Main {
                     return;
             }
 
+            // Прежний список заменяем только после успешной загрузки всех записей.
             students = newStudents;
             System.out.println("Успешно загружено студентов: " + students.size());
 
@@ -149,6 +151,7 @@ private static void showStudents() {
     }
 }
 
+// Выбираем реализацию алгоритма через общий интерфейс Strategy.
 private static SortStrategy<Student> chooseStrategy() {
 
     System.out.println("\nВыберите алгоритм:");
@@ -171,6 +174,7 @@ private static SortStrategy<Student> chooseStrategy() {
     }
 }
 
+// Компаратор задаёт поле сравнения независимо от выбранного алгоритма.
 private static Comparator<Student> chooseComparator() {
 
     System.out.println("\nВыберите поле:");

@@ -78,6 +78,17 @@ public class Student implements Comparable<Student>{
         }
 
         public Student build() {
+            // Общая проверка для ручного ввода, файла и прямого создания через Builder.
+            if (groupNumber <= 0) {
+                throw new IllegalArgumentException("Номер группы должен быть больше нуля");
+            }
+            if (!Double.isFinite(averageScore) || averageScore < 0 || averageScore > 5) {
+                throw new IllegalArgumentException("Средний балл должен быть конечным числом от 0 до 5");
+            }
+            // Проверяем строку без преобразования в число, сохраняя ведущие нули.
+            if (recordBookNumber == null || !recordBookNumber.matches("[0-9]*[1-9][0-9]*")) {
+                throw new IllegalArgumentException("Номер зачётной книжки должен содержать только цифры и быть больше нуля");
+            }
             return new Student(this);
         }
     }
